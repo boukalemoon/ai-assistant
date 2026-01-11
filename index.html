@@ -410,5 +410,31 @@
                                     class="w-full glass-bright rounded-lg px-4 py-3 text-white mono text-sm focus:outline-none focus:ring-2 focus:ring-cyan-500"
                                     placeholder="gsk_...">
                                 <p class="text-xs text-slate-500 mt-1">🔗 console.groq.com</p>
+                                <button id="saveModal" class="w-full gradient-cyber text-white py-3 rounded-lg font-bold hover:opacity-90 transition neon-cyan mt-4">
+                                KAYDET
+                            </button>
+                        </div>
+                    </div>
+                `;
+                document.body.appendChild(modal);
+                
+                modal.querySelector('#closeModal').onclick = () => modal.remove();
+                modal.querySelector('#saveModal').onclick = () => {
+                    this.config.groqApiKey = modal.querySelector('#groqKey').value.trim();
+                    this.saveData();
+                    this.showSystem('✅ API Key kaydedildi!');
+                    modal.remove();
+                };
+            }
+            
+            showHelp() {
+                this.showMsg('ai', `📖 KOMUTLAR\n\n/help - Bu menü\n\n💡 Daha fazla özellik yakında!`);
+            }
+        }
+        
+        const assistant = new AIAssistant();
+    </script>
+</body>
+</html>
                             </div>
                             İlk versiyon - AI Asistan
